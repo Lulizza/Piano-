@@ -100,8 +100,12 @@ while not done:
     minha_camera.update()
     glLightfv(GL_LIGHT0, GL_POSITION, [5.0, 5.0, 5.0, 1.0])
     glLightfv(GL_LIGHT1, GL_POSITION, [-5.0, 5.0, -5.0, 1.0])
-    
+
+    glPushMatrix()
+    glScalef(minha_camera.escala, minha_camera.escala, minha_camera.escala)
     piano.draw()
+    glPopMatrix()
+
     pygame.display.flip()
 
 pygame.quit()

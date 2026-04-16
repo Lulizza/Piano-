@@ -12,6 +12,7 @@ class Camera:
         self.distance = 6.0
         self.speed = 1.5
         self.zoom_speed = 0.2
+        self.escala = 1.0
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -28,6 +29,12 @@ class Camera:
             self.distance -= self.zoom_speed
         if keys[pygame.K_s]:
             self.distance += self.zoom_speed
+        if keys[pygame.K_a]:
+            self.escala += 0.05
+        if keys[pygame.K_d]:
+            self.escala -= 0.05
+            self.escala = max(0.1, self.escala)
+            
             
         if self.pitch > 89.0: self.pitch = 89.0
         if self.pitch < -89.0: self.pitch = -89.0
