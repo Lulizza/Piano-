@@ -30,8 +30,10 @@ class mesh:
                             1,0,2,3, #retangulo acima das teclas
                             1,0,4,5,  #base para as teclas
                             6,8,9,7, #profundidade da base
-                            
-
+                            1,6,8,5,  #ligação entre a base e a profundidade esquerda
+                            0,7,9,4,  #ligação entre a base e a profundidade direita
+                            4,9,8,5,   #ligação entre a base e a profundidade frente
+                            2,7,6,3   #ligação entre a base e a profundidade trás
                         ]
         #desenha a forma conforme os dados anteriores
         self.draw_type = GL_LINE_LOOP
