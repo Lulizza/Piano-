@@ -5,100 +5,122 @@ class mesh:
     def __init__(self):
         #equivalem aos dados das pontas do objeto
         self.vertices = [
+            #retangulo acima das teclas
+            (0.5, -0.05, 0.5), #0 direita baixo
+            (-0.5, -0.05, 0.5), #1 esquerda baixo
+            (0.5, 0.15, 0.5), #2 direita cima
+            (-0.5, 0.15, 0.5), #3 esquerda cima
+
+            #base para as teclas
+            (0.5, -0.05, 0.70),  # 4 direta
+            (-0.5, -0.05, 0.70),  # 5 esquerda
+            (-0.5, -0.10, 0.5), #6 esquerda
+            (0.5, -0.10, 0.5), #7 direita
+            (-0.5, -0.10, 0.70), #8 esquerda
+            (0.5, -0.10, 0.70), #9 direita
+
+            #corpo triangulo  primeiro quad
+            (0.5, 0.15, -0.25), #10 direita cima dentro
+            (-0.5, 0.15, -0.25), #11 esquerda cima dentro
+            (0.5, -0.10, 0.5), #12 direita baixo fora
+            (-0.5, -0.10, 0.5), #13 esquerda baixo fora
+            (0.5, -0.10, -0.25), #14 direita baixo dentro
+            (-0.5, -0.10, -0.25), #15 esquerda baixo dentro
                         
-                        #retangulo acima das teclas
-                         (0.5, -0.05, 0.5), #0 direita baixo
-                         (-0.5, -0.05, 0.5), #1 esquerda baixo
-                         (0.5, 0.15, 0.5), #2 direita cima
-                         (-0.5, 0.15, 0.5), #3 esquerda cima
+            #pé esquerdo do piano
+            (-0.5, -0.12, 0.45), #16 esquerda cima dentro
+            (-0.37, -0.12, 0.45), #17 direita cima dentro
+            (-0.5, -0.12, 0.60), #18 esquerda cima fora
+            (-0.37, -0.12, 0.60), #19 direita cima fora 
+            (-0.47, -0.6, 0.48), #20 esquerda baixo dentro
+            (-0.40, -0.6, 0.48), #21 direita baixo dentro
+            (-0.47, -0.6, 0.57), #22 esquerda baixo fora
+            (-0.40, -0.6, 0.57), #23 direita baixo fora
 
-                        #base para as teclas
-                         (0.5, -0.05, 0.70),  # 4 direta
-                         (-0.5, -0.05, 0.70),  # 5 esquerda
-
-                         (-0.5, -0.10, 0.5), #6 esquerda
-                         (0.5, -0.10, 0.5), #7 direita
-                         (-0.5, -0.10, 0.70), #8 esquerda
-                         (0.5, -0.10, 0.70), #9 direita
-
-                        #corpo triangulo  primeiro quad
-                        (0.5, 0.15, -0.25), #10 direita cima dentro
-                        (-0.5, 0.15, -0.25), #11 esquerda cima dentro
-                        
-                        (0.5, -0.10, 0.5), #12 direita baixo fora
-                        (-0.5, -0.10, 0.5), #13 esquerda baixo fora
-                        (0.5, -0.10, -0.25), #14 direita baixo dentro
-                        (-0.5, -0.10, -0.25), #15 esquerda baixo dentro
-                        
-                        #pé esquerdo do piano
-                        (-0.5, -0.12, 0.45), #16 esquerda cima dentro
-                        (-0.37, -0.12, 0.45), #17 direita cima dentro
-                        (-0.5, -0.12, 0.60), #18 esquerda cima fora
-                        (-0.37, -0.12, 0.60), #19 direita cima fora
-
-                        (-0.47, -0.6, 0.48), #20 esquerda baixo dentro
-                        (-0.40, -0.6, 0.48), #21 direita baixo dentro
-                        (-0.47, -0.6, 0.57), #22 esquerda baixo fora
-                        (-0.40, -0.6, 0.57), #23 direita baixo fora
-
-                        #pé direito do piano
-                        (0.5, -0.12, 0.45), #24 esquerda cima dentro
-                        (0.37, -0.12, 0.45), #25 direita cima dentro
-                        (0.5, -0.12, 0.60), #26 esquerda cima fora
-                        (0.37, -0.12, 0.60), #27 direita cima fora
-
-                        (0.47, -0.6, 0.48), #28 esquerda baixo dentro
-                        (0.40, -0.6, 0.48), #29 direita baixo dentro
-                        (0.47, -0.6, 0.57), #30 esquerda baixo fora
-                        (0.40, -0.6, 0.57) #31 direita baixo fora
-                        ]
+            #pé direito do piano
+            (0.5, -0.12, 0.45), #24 esquerda cima dentro
+            (0.37, -0.12, 0.45), #25 direita cima dentro
+            (0.5, -0.12, 0.60), #26 esquerda cima fora
+            (0.37, -0.12, 0.60), #27 direita cima fora
+            (0.47, -0.6, 0.48), #28 esquerda baixo dentro
+            (0.40, -0.6, 0.48), #29 direita baixo dentro
+            (0.47, -0.6, 0.57), #30 esquerda baixo fora
+            (0.40, -0.6, 0.57) #31 direita baixo fora
+        ]
 
         # costrução estrutura do piano
         self.estrutura = [
-                            #corpo
-                            1,0,2,3, #retangulo acima das teclas
-                            3,2,10,11, #corpo triangulo cima
-                            12,13,15,14, #corpo triangulo baixo
-                            3,11,15,13,  #ligação corpo esquerda
-                            2,10,14,12, #ligação corpo direita
-                            10, 11, 15, 14, #corpo triangulo frente
-                            0,1,13,12, #corpo triangulo trás
-                            
-                            #teclas
-                            1,0,4,5,  #base para as teclas
-                            6,8,9,7, #profundidade da base
-                            1,6,8,5,  #ligação entre a base e a profundidade esquerda
-                            0,7,9,4,  #ligação entre a base e a profundidade direita
-                            4,9,8,5,   #ligação entre a base e a profundidade frente
-                            2,7,6,3,   #ligação entre a base e a profundidade trás
+            #corpo
+            1,0,2,3, #retangulo acima das teclas
+            3,2,10,11, #corpo triangulo cima
+            12,13,15,14, #corpo triangulo baixo
+            3,11,15,13,  #ligação corpo esquerda
+            2,10,14,12, #ligação corpo direita
+            10, 11, 15, 14, #corpo triangulo frente
+            0,1,13,12, #corpo triangulo trás
 
-                            #pé esquerdo piano
-                            16,17,19,18, #cima do pé
-                            20,21,23,22, #base do pé
-                            16,18,22,20, #ligação entre a base e a parte de cima do pé esquerda
-                            17,19,23,21, #ligação entre a base e a parte de cima do pé direita 
-                            18,22,23,19, #ligação entre a base e a parte de cima do pé frente
-                            16,20,21,17, #ligação entre a base e a parte de cima do pé trás 
+            #teclas
+            1,0,4,5,  #base para as teclas
+            6,8,9,7, #profundidade da base
+            1,6,8,5,  #ligação entre a base e a profundidade esquerda
+            0,7,9,4,  #ligação entre a base e a profundidade direita
+            4,9,8,5,   #ligação entre a base e a profundidade frente
+            2,7,6,3,   #ligação entre a base e a profundidade trás
 
-                            #pé direito piano
-                            24,25,27,26, #cima do pé
-                            28,29,31,30, #base do pé
-                            24,26,30,28, #ligação entre a base e a parte de cima do pé esquerda
-                            25,27,31,29 #ligação entre a base e a parte de cima do pé direita
-                            24,25,29,28, #ligação entre a base e a parte de cima do pé frente
-                            26,27,31,30 #ligação entre a base e a parte de cima do pé trás
-                            
-                        ]
-        #desenha a forma conforme os dados anteriores
-        self.draw_type = GL_LINE_LOOP
+            #pé esquerdo piano
+            16,17,19,18, #cima do pé
+            20,21,23,22, #base do pé
+            16,18,22,20, #ligação entre a base e a parte de cima do pé esquerda
+            17,19,23,21, #ligação entre a base e a parte de cima do pé direita 
+            18,22,23,19, #ligação entre a base e a parte de cima do pé frente
+            16,20,21,17, #ligação entre a base e a parte de cima do pé trás 
 
-    #desenha as pontas
-    def draw(self):
-        for t in range(0, len(self.estrutura), 4):
-            glBegin(self.draw_type)
-            glVertex3fv(self.vertices[self.estrutura[t]])
-            glVertex3fv(self.vertices[self.estrutura[t+1]])
-            glVertex3fv(self.vertices[self.estrutura[t+2]])
-            glVertex3fv(self.vertices[self.estrutura[t+3]])
+            #pé direito piano
+            24,25,27,26, #cima do pé
+            28,29,31,30, #base do pé
+            24,26,30,28, #ligação entre a base e a parte de cima do pé esquerda
+            25,27,31,29, #ligação entre a base e a parte de cima do pé direita
+            24,25,29,28, #ligação entre a base e a parte de cima do pé frente
+            26,27,31,30 #ligação entre a base e a parte de cima do pé trás
+        ]
+
+        # separar partes
+        self.partes = {
+            "corpo": self.estrutura[0:28],
+            "teclas": self.estrutura[28:52],
+            "pes": self.estrutura[52:]
+        }
+
+        # texturas
+        self.textura_madeira = None
+        self.textura_tecla = None
+
+    def draw_parte(self, indices, cor, textura):
+        glBindTexture(GL_TEXTURE_2D, textura)
+        glColor3f(*cor)
+
+        for t in range(0, len(indices), 4):
+            glBegin(GL_QUADS)
+
+            glTexCoord2f(0, 0)
+            glVertex3fv(self.vertices[indices[t]])
+
+            glTexCoord2f(1, 0)
+            glVertex3fv(self.vertices[indices[t+1]])
+
+            glTexCoord2f(1, 1)
+            glVertex3fv(self.vertices[indices[t+2]])
+
+            glTexCoord2f(0, 1)
+            glVertex3fv(self.vertices[indices[t+3]])
+
             glEnd()
 
+    def draw(self):
+        # corpo (madeira)
+        self.draw_parte(self.partes["corpo"], (0.4, 0.4, 0.4), self.textura_madeira)
+        # teclas (brancas)
+        self.draw_parte(self.partes["teclas"], (0.7, 0.7, 0.7), self.textura_tecla)
+
+        # pés
+        self.draw_parte(self.partes["pes"], (0.4, 0.4, 0.4), self.textura_madeira)
