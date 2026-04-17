@@ -36,4 +36,3 @@ class LoadMesh(mesh):
                         self.triangles.append(face[0])
                         self.triangles.append(face[i])
                         self.triangles.append(face[i + 1])
-            print("Vertices:", len(self.vertices)) #so pra ver se ta lendo o arquivo mesmo
