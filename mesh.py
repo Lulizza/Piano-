@@ -29,7 +29,17 @@ class mesh:
                         (-0.5, -0.10, 0.5), #13 esquerda baixo fora
                         (0.5, -0.10, -0.25), #14 direita baixo dentro
                         (-0.5, -0.10, -0.25), #15 esquerda baixo dentro
+                        
+                        #pé esquerdo do piano
+                        (-0.5, -0.12, 0.45), #16 esquerda cima
+                        (-0.37, -0.12, 0.45), #17 direita cima
+                        (-0.5, -0.12, 0.60), #18 esquerda cima
+                        (-0.37, -0.12, 0.60), #19 direita cima
 
+                        (-0.47, -0.6, 0.48), #20 esquerda baixo
+                        (-0.40, -0.6, 0.48), #21 direita baixo
+                        (-0.47, -0.6, 0.57), #22 esquerda baixo
+                        (-0.40, -0.6, 0.57) #23 direita baixo
                         ]
 
         # costrução estrutura do piano
@@ -49,8 +59,15 @@ class mesh:
                             1,6,8,5,  #ligação entre a base e a profundidade esquerda
                             0,7,9,4,  #ligação entre a base e a profundidade direita
                             4,9,8,5,   #ligação entre a base e a profundidade frente
-                            2,7,6,3   #ligação entre a base e a profundidade trás
-                                                        
+                            2,7,6,3,   #ligação entre a base e a profundidade trás
+
+                            #pé esquerdo piano
+                            16,17,19,18, #cima do pé
+                            20,21,23,22, #base do pé
+                            16,18,22,20, #ligação entre a base e a parte de cima do pé esquerda
+                            17,19,23,21, #ligação entre a base e a parte de cima do pé direita 
+                            18,22,23,19, #ligação entre a base e a parte de cima do pé frente
+                            16,20,21,17 #ligação entre a base e a parte de cima do pé trás                           
                             
                         ]
         #desenha a forma conforme os dados anteriores
