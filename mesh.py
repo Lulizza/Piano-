@@ -31,15 +31,26 @@ class mesh:
                         (-0.5, -0.10, -0.25), #15 esquerda baixo dentro
                         
                         #pé esquerdo do piano
-                        (-0.5, -0.12, 0.45), #16 esquerda cima
-                        (-0.37, -0.12, 0.45), #17 direita cima
-                        (-0.5, -0.12, 0.60), #18 esquerda cima
-                        (-0.37, -0.12, 0.60), #19 direita cima
+                        (-0.5, -0.12, 0.45), #16 esquerda cima dentro
+                        (-0.37, -0.12, 0.45), #17 direita cima dentro
+                        (-0.5, -0.12, 0.60), #18 esquerda cima fora
+                        (-0.37, -0.12, 0.60), #19 direita cima fora
 
-                        (-0.47, -0.6, 0.48), #20 esquerda baixo
-                        (-0.40, -0.6, 0.48), #21 direita baixo
-                        (-0.47, -0.6, 0.57), #22 esquerda baixo
-                        (-0.40, -0.6, 0.57) #23 direita baixo
+                        (-0.47, -0.6, 0.48), #20 esquerda baixo dentro
+                        (-0.40, -0.6, 0.48), #21 direita baixo dentro
+                        (-0.47, -0.6, 0.57), #22 esquerda baixo fora
+                        (-0.40, -0.6, 0.57), #23 direita baixo fora
+
+                        #pé direito do piano
+                        (0.5, -0.12, 0.45), #24 esquerda cima dentro
+                        (0.37, -0.12, 0.45), #25 direita cima dentro
+                        (0.5, -0.12, 0.60), #26 esquerda cima fora
+                        (0.37, -0.12, 0.60), #27 direita cima fora
+
+                        (0.47, -0.6, 0.48), #28 esquerda baixo dentro
+                        (0.40, -0.6, 0.48), #29 direita baixo dentro
+                        (0.47, -0.6, 0.57), #30 esquerda baixo fora
+                        (0.40, -0.6, 0.57) #31 direita baixo fora
                         ]
 
         # costrução estrutura do piano
@@ -67,7 +78,15 @@ class mesh:
                             16,18,22,20, #ligação entre a base e a parte de cima do pé esquerda
                             17,19,23,21, #ligação entre a base e a parte de cima do pé direita 
                             18,22,23,19, #ligação entre a base e a parte de cima do pé frente
-                            16,20,21,17 #ligação entre a base e a parte de cima do pé trás                           
+                            16,20,21,17, #ligação entre a base e a parte de cima do pé trás 
+
+                            #pé direito piano
+                            24,25,27,26, #cima do pé
+                            28,29,31,30, #base do pé
+                            24,26,30,28, #ligação entre a base e a parte de cima do pé esquerda
+                            25,27,31,29 #ligação entre a base e a parte de cima do pé direita
+                            24,25,29,28, #ligação entre a base e a parte de cima do pé frente
+                            26,27,31,30 #ligação entre a base e a parte de cima do pé trás
                             
                         ]
         #desenha a forma conforme os dados anteriores
