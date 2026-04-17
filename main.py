@@ -57,8 +57,8 @@ init()
 
 running = True
 while running:
-    for e in pygame.event.get():
-        if e.type == QUIT:
+    for event in pygame.event.get():
+        if event.type == QUIT:
             running = False
 
     display()

@@ -51,37 +51,37 @@ class mesh:
         # costrução estrutura do piano
         self.estrutura = [
             #corpo
-            1,0,2,3,
-            3,2,10,11,
-            12,13,15,14,
-            3,11,15,13,
-            2,10,14,12,
-            10, 11, 15, 14,
-            0,1,13,12,
-                            
+            1,0,2,3, #retangulo acima das teclas
+            3,2,10,11, #corpo triangulo cima
+            12,13,15,14, #corpo triangulo baixo
+            3,11,15,13,  #ligação corpo esquerda
+            2,10,14,12, #ligação corpo direita
+            10, 11, 15, 14, #corpo triangulo frente
+            0,1,13,12, #corpo triangulo trás
+
             #teclas
-            1,0,4,5,
-            6,8,9,7,
-            1,6,8,5,
-            0,7,9,4,
-            4,9,8,5,
-            2,7,6,3,
+            1,0,4,5,  #base para as teclas
+            6,8,9,7, #profundidade da base
+            1,6,8,5,  #ligação entre a base e a profundidade esquerda
+            0,7,9,4,  #ligação entre a base e a profundidade direita
+            4,9,8,5,   #ligação entre a base e a profundidade frente
+            2,7,6,3,   #ligação entre a base e a profundidade trás
 
             #pé esquerdo piano
-            16,17,19,18,
-            20,21,23,22,
-            16,18,22,20,
-            17,19,23,21,
-            18,22,23,19,
-            16,20,21,17,
+            16,17,19,18, #cima do pé
+            20,21,23,22, #base do pé
+            16,18,22,20, #ligação entre a base e a parte de cima do pé esquerda
+            17,19,23,21, #ligação entre a base e a parte de cima do pé direita 
+            18,22,23,19, #ligação entre a base e a parte de cima do pé frente
+            16,20,21,17, #ligação entre a base e a parte de cima do pé trás 
 
             #pé direito piano
-            24,25,27,26,
-            28,29,31,30,
-            24,26,30,28,
-            25,27,31,29,
-            24,25,29,28,
-            26,27,31,30
+            24,25,27,26, #cima do pé
+            28,29,31,30, #base do pé
+            24,26,30,28, #ligação entre a base e a parte de cima do pé esquerda
+            25,27,31,29, #ligação entre a base e a parte de cima do pé direita
+            24,25,29,28, #ligação entre a base e a parte de cima do pé frente
+            26,27,31,30 #ligação entre a base e a parte de cima do pé trás
         ]
 
         # separar partes
