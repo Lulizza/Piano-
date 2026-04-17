@@ -22,8 +22,13 @@ class mesh:
                          (0.5, -0.10, 0.70), #9 direita
 
                         #corpo triangulo  primeiro quad
-                        (0.5, 0.15, -0.25), #10 direita pra dentro
-                        (-0.5, 0.15, -0.25) #11 esquerda pra dentro
+                        (0.5, 0.15, -0.25), #10 direita cima dentro
+                        (-0.5, 0.15, -0.25), #11 esquerda cima dentro
+                        
+                        (0.5, -0.10, 0.5), #12 direita baixo fora
+                        (-0.5, -0.10, 0.5), #13 esquerda baixo fora
+                        (0.5, -0.10, -0.25), #14 direita baixo dentro
+                        (-0.5, -0.10, -0.25), #15 esquerda baixo dentro
 
                         ]
 
@@ -31,7 +36,12 @@ class mesh:
         self.estrutura = [
                             #corpo
                             1,0,2,3, #retangulo acima das teclas
-                            3,2,10,11, #corpo triangulo
+                            3,2,10,11, #corpo triangulo cima
+                            12,13,15,14, #corpo triangulo baixo
+                            3,11,15,13,  #ligação corpo esquerda
+                            2,10,14,12, #ligação corpo direita
+                            10, 11, 15, 14, #corpo triangulo frente
+                            0,1,13,12, #corpo triangulo trás
                             
                             #teclas
                             1,0,4,5,  #base para as teclas
@@ -41,7 +51,7 @@ class mesh:
                             4,9,8,5,   #ligação entre a base e a profundidade frente
                             2,7,6,3   #ligação entre a base e a profundidade trás
                                                         
-                            #
+                            
                         ]
         #desenha a forma conforme os dados anteriores
         self.draw_type = GL_LINE_LOOP
