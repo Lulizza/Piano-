@@ -118,10 +118,9 @@ class mesh:
 
     def draw(self):
         # corpo (madeira)
-        self.draw_parte(self.partes["corpo"], (0.7, 0.7, 0.7), self.textura_madeira)
-
+        self.draw_parte(self.partes["corpo"], (0.4, 0.4, 0.4), self.textura_madeira)
         # teclas (brancas)
-        self.draw_parte(self.partes["teclas"], (1, 1, 1), self.textura_tecla)
+        self.draw_parte(self.partes["teclas"], (0.7, 0.7, 0.7), self.textura_tecla)
 
         # pés
-        self.draw_parte(self.partes["pes"], (0.2, 0.2, 0.2), self.textura_madeira)
+        self.draw_parte(self.partes["pes"], (0.4, 0.4, 0.4), self.textura_madeira)

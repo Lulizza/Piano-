@@ -41,12 +41,13 @@ def init():
     glLightfv(GL_LIGHT0, GL_AMBIENT, (0.6, 0.6, 0.6, 1))
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, (0.4, 0.4, 0.4, 1))
 
+    glClearColor(0.8, 0.8, 0.8, 1)
     gluPerspective(60, 1000/800, 0.1, 100)
     glTranslatef(0, 0, -3)
 
     # texturas
     obj.textura_madeira = load_texture("textures/rosewood_veneer.png")
-    obj.textura_tecla = load_texture("textures/rosewood_veneer.png")
+    obj.textura_tecla = load_texture("textures/keys.png")
 
 def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
