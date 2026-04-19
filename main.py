@@ -72,11 +72,11 @@ while not done:
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     
-    glTranslate(0, -1, -5)
-    glRotatef(pygame.time.get_ticks() / 50, 0, 1, 0)
+    glTranslate(0, -1, -6) 
+    glRotatef(20, 1, 0, 0) 
+    glRotatef(45, 0, 1, 0) 
     
     piano.draw()
     pygame.display.flip()
-    clock.tick(60)
 
 pygame.quit()
