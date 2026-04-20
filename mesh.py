@@ -16,7 +16,7 @@ class mesh:
             "specular": specular,
             "shininess": shininess,
             "texture_id": texture_id,
-            "is_reflective": is_reflective # SALVAMOS AQUI
+            "is_reflective": is_reflective
         }
 
     def draw(self):
