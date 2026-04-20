@@ -63,8 +63,7 @@ def initialise():
 
 piano = LoadMesh("Pianin.obj")
 
-mapa_reflexo = load_texture("textures/GrandPianoReflex.png", intensity=0.25)
-
+mapa_reflexo = load_texture("textures/GrandPianoReflex.png", intensity=0.35)
 piano.set_material_color("Teclas_Brancas", diffuse=[0.95, 0.95, 0.9, 1.0], specular=[0.3, 0.3, 0.3, 1.0], shininess=30.0)
 piano.set_material_color("Teclas_Pretas", diffuse=[0.05, 0.05, 0.05, 1.0], specular=[0.5, 0.5, 0.5, 1.0], shininess=100.0)
 piano.set_material_color("Madeira_interna", diffuse=[0.6, 0.4, 0.2, 1.0], specular=[0.1, 0.1, 0.1, 1.0], shininess=10.0)
