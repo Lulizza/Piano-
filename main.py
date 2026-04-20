@@ -3,10 +3,10 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from loadMesh import LoadMesh
+from mesh import *
 
 pygame.init()
 
-# project settings
 screen_width = 1000
 screen_height = 800
 background_color = (0.1, 0.1, 0.1, 1)
@@ -33,15 +33,27 @@ def load_texture(filename):
 
 def setup_lighting():
     glEnable(GL_LIGHTING)
+    
+    # Luz Principal 
     glEnable(GL_LIGHT0)
     glLightfv(GL_LIGHT0, GL_POSITION, [5.0, 5.0, 5.0, 1.0])
-    glLightfv(GL_LIGHT0, GL_AMBIENT, [0.2, 0.2, 0.2, 1.0])
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.9, 0.9, 0.9, 1.0])
+    glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])  
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.4, 0.4, 0.4, 1.0])  
+    glLightfv(GL_LIGHT0, GL_SPECULAR, [0.3, 0.3, 0.3, 1.0]) 
+
+    # Luz Oposta
+    glEnable(GL_LIGHT1)
+    glLightfv(GL_LIGHT1, GL_POSITION, [-5.0, 5.0, -5.0, 1.0])
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.2, 0.2, 0.2, 1.0])  
+    glLightfv(GL_LIGHT1, GL_SPECULAR, [0.2, 0.2, 0.2, 1.0]) 
 
 def initialise():
     glClearColor(*background_color)
     glEnable(GL_DEPTH_TEST)
     glEnable(GL_NORMALIZE)
+    
+    glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
@@ -53,16 +65,23 @@ def initialise():
 
 piano = LoadMesh("Pianin.obj")
 
-# Configurando as cores baseadas nas partes do .obj
-piano.set_material_color("Teclas_Brancas", diffuse=[0.9, 0.9, 0.9, 1.0]) # Branco
-piano.set_material_color("Teclas_Pretas", diffuse=[0.05, 0.05, 0.05, 1.0], shininess=100.0) # Preto
-piano.set_material_color("Piano", diffuse=[0.25, 0.12, 0.05, 1.0]) # Marrom escuro 
-piano.set_material_color("Madeira_interna", diffuse=[0.6, 0.4, 0.2, 1.0]) # Marrom claro
-piano.set_material_color("strings.001", diffuse=[0.8, 0.7, 0.2, 1.0], shininess=80.0) # Dourado
+mapa_reflexo = load_texture("textures/GrandPianoReflex.png")
+
+piano.set_material_color("Teclas_Brancas", diffuse=[0.95, 0.95, 0.9, 1.0], specular=[0.5, 0.5, 0.5, 1.0], shininess=60.0)
+piano.set_material_color("Teclas_Pretas", diffuse=[0.02, 0.02, 0.02, 1.0], specular=[0.8, 0.8, 0.8, 1.0], shininess=100.0)
+
+piano.set_material_color("Piano", 
+                         diffuse=[0.01, 0.01, 0.01, 1.0], 
+                         specular=[0.1, 0.1, 0.1, 1.0], 
+                         shininess=30.0, 
+                         texture_id=mapa_reflexo, 
+                         is_reflective=True)
+
+piano.set_material_color("Madeira_interna", diffuse=[0.75, 0.58, 0.35, 1.0], specular=[0.2, 0.2, 0.2, 1.0], shininess=10.0)
+piano.set_material_color("strings.001", diffuse=[0.3, 0.3, 0.3, 0.1], specular=[0.6, 0.6, 0.6, 1.0], shininess=80.0)
 
 done = False
 initialise()
-clock = pygame.time.Clock()
 
 while not done:
     for event in pygame.event.get():
@@ -72,11 +91,11 @@ while not done:
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     
-    glTranslate(0, -1, -6) 
-    glRotatef(20, 1, 0, 0) 
-    glRotatef(45, 0, 1, 0) 
+    glTranslate(0, -1, -6)
+    glRotatef(20, 1, 0, 0)
+    glRotatef(45, 0, 1, 0)
     
     piano.draw()
     pygame.display.flip()
-
+    
 pygame.quit()
