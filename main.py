@@ -69,6 +69,8 @@ piano.set_material_color("Teclas_Pretas", diffuse=[0.05, 0.05, 0.05, 1.0], specu
 piano.set_material_color("Madeira_interna", diffuse=[0.6, 0.4, 0.2, 1.0], specular=[0.1, 0.1, 0.1, 1.0], shininess=10.0)
 piano.set_material_color("strings.001", diffuse=[0.5, 0.5, 0.5, 0.2], specular=[0.8, 0.8, 0.8, 1.0], shininess=80.0)
 piano.set_material_color("Piano", diffuse=[0.02, 0.02, 0.02, 1.0], specular=[0.1, 0.1, 0.1, 1.0], shininess=60.0, texture_id=mapa_reflexo, is_reflective=True)
+piano.set_material_color("Suporte", diffuse=[0.02, 0.02, 0.02, 1.0], specular=[0.1, 0.1, 0.1, 1.0], shininess=60.0, texture_id=mapa_reflexo, is_reflective=True)
+piano.set_material_color("Pedais", diffuse=[0.8, 0.6, 0.2, 1.0], specular=[0.9, 0.8, 0.3, 1.0], shininess=80.0)
 
 initialise()
 minha_camera = Camera()
