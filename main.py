@@ -1,4 +1,6 @@
 import pygame
+import cv2
+import numpy as np
 from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
@@ -15,16 +17,27 @@ pygame.display.set_caption('Pianin de Cauda')
 
 def load_texture(filename, intensity=1.0):
     try:
-        texture_surface = pygame.image.load(filename).convert_alpha()
-        
-        if intensity < 1.0:
-            pelicula = pygame.Surface(texture_surface.get_size(), pygame.SRCALPHA)
-            opacidade = int((1.0 - intensity) * 255)
-            pelicula.fill((0, 0, 0, opacidade))
-            texture_surface.blit(pelicula, (0, 0))
+        img = cv2.imread(filename, cv2.IMREAD_UNCHANGED)
 
-        texture_data = pygame.image.tostring(texture_surface, "RGBA", 1)
-        width, height = texture_surface.get_size()
+        if img is None:
+            return None
+
+        if len(img.shape) == 2:
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGBA)
+        elif img.shape[2] == 3:
+            b, g, r = cv2.split(img)
+            a = np.ones_like(b) * 255
+            img = cv2.merge((b, g, r, a))
+
+        img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGBA)
+
+        if intensity < 1.0:
+            alpha = (1.0 - intensity)
+            img[:, :, :3] = (img[:, :, :3] * (1 - alpha)).astype(np.uint8)
+
+        height, width = img.shape[:2]
+        img = np.flip(img, axis=0)
+        texture_data = img.tobytes()
         
         tex_id = glGenTextures(1)
         glBindTexture(GL_TEXTURE_2D, tex_id)
