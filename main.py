@@ -9,7 +9,7 @@ from mesh import *
 from Camera import Camera
 
 pygame.init()
-background_color = (0.1, 0.1, 0.1, 1)
+background_color = (0.3, 0.3, 0.3, 1)
 
 screen_width, screen_height = 1000, 800
 screen = pygame.display.set_mode((screen_width, screen_height), DOUBLEBUF | OPENGL)
