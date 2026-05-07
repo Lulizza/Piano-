@@ -22,6 +22,7 @@ Projeto desenvolvido para a disciplina de **Computação Gráfica** (Avaliação
 | `Setas Esq/Dir` | Orbitar horizontalmente (Yaw) |
 | `Setas Cima/Baixo` | Inclinar câmera verticalmente (Pitch) |
 | `W/S` | Aproximar/Afastar câmera (Zoom In/Zoom Out) |
+| `A/D` | Aumentar/Dimunir escala |
 
 ## 🏗️ Arquitetura do Projeto
 - `main.py`: Ponto de entrada, configuração do contexto e loop principal.
